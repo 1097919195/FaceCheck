@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="zone_textcolor_bg">#DDDDDD</color>
+    <color name="circle_name_selector_color">#cccccc</color>
+    <color name="container_background">#EBEBEB</color>
+    <color name="primary_text_white">#deffffff</color>
+    <!--87%white-->
+    <color name="progress_bar_unfinished">#D4D4D4</color>
+
+    <color name="white">#ffffff</color>
+
+    <!--face-color-->
+    <!--休息日颜色-->
+    <color name="check_nowork">#505765</color>
+    <!--打卡正常颜色-->
+    <color name="checkc_success">#29ABE2</color>
+    <!--打卡异常颜色-->
+    <color name="checkc_fail">#F7931E</color>
+    <!--日期还未到的工作日颜色-->
+    <color name="checkc_nonarrival">#ffffff</color>
+
+    <color name="transparent_background">#98000000</color>
+</resources>

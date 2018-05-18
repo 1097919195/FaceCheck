@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_marginLeft="20dp"
+  >
+
+    <RelativeLayout
+        android:id="@+id/Fl_Image_frame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/Iv_user_face"
+        android:layout_width="238dp"
+        android:layout_height="338dp"
+        android:scaleType="fitXY"
+        app:riv_corner_radius="5dp"
+        android:paddingLeft="1dp"
+        android:paddingBottom="4.5dp"
+        android:layout_centerInParent="true"
+        />
+        <FrameLayout
+            android:id="@+id/FL_cover"
+            android:layout_width="238dp"
+            android:layout_height="338dp"
+            android:layout_centerInParent="true"
+            android:background="#85000000"
+            android:visibility="gone"
+            />
+
+
+        <ImageView
+            android:id="@+id/Iv_bg"
+            android:layout_width="315dp"
+            android:layout_height="426dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/face_item_fame_circular"
+            />
+        <TextView
+            android:id="@+id/Tv_user_face_name"
+            android:layout_width="85dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_marginRight="58dp"
+            android:layout_marginBottom="60dp"
+            android:text="dsadsadsadadada"
+            android:singleLine="true"
+            android:layout_alignRight="@+id/Iv_bg"
+            android:layout_alignBottom="@+id/Iv_bg"
+            />
+        <TextView
+            android:id="@+id/Tv_user_face_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_marginLeft="58dp"
+            android:layout_marginTop="60dp"
+            android:text="sdsa"
+            android:background="@color/black"
+            />
+    </RelativeLayout>
+
+</LinearLayout>

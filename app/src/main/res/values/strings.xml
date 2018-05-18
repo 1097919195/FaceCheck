@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FaceCheck</string>
+
+    <string name="close_reason">cd_close</string>
+    <string name="logo_name">国家新闻出版广电总局八三一台</string>
+    <string name="face_num_tip">识别到相似人脸，请点击选择确认</string>
+</resources>

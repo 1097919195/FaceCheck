@@ -1,0 +1,73 @@
+apply plugin: 'com.android.application'
+
+def releaseTime() {
+    return new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))
+}
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24"
+    defaultConfig {
+        applicationId "jaydenxiao.com.androidfire"
+        minSdkVersion 19
+        targetSdkVersion 24
+        versionCode 4
+        versionName "1.0.3"
+    }
+    buildTypes {
+        release {
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //apk命名
+            android.applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def outputFile = output.outputFile
+                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                        //这里修改apk文件名
+                        def fileName = "face_check-${defaultConfig.versionCode}-${defaultConfig.versionName}-${releaseTime()}.apk"
+                        output.outputFile = new File(outputFile.parent, fileName)
+                    }
+                }
+            }
+        }
+        debug {
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+        }
+    }
+    //设置虚拟机堆内存空间大小，避免在编译期间OOM
+    dexOptions {
+        incremental true
+        javaMaxHeapSize "4g"
+    }
+    //打包不检查
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    //图片选择
+    //万能适配器和recyclerview
+    //分享
+    //视频播放
+    //常用提示框
+    compile project(':library:common')
+    compile(name: 'openCVLibrary320-release', ext: 'aar')
+    compile(name: 'facerecognitionlib-release', ext: 'aar')
+    compile files('libs/log4j-1.2.17.jar')
+    compile files('libs/android-logging-log4j-1.0.3.jar')
+    compile('org.xutils:xutils:3.5.0') { exclude group: 'com.google.code.gson' }
+    debugCompile('com.amitshekhar.android:debug-db:1.0.1') { exclude group: 'com.google.code.gson' }
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
+    compile 'com.makeramen:roundedimageview:2.3.0'
+}
